@@ -2,6 +2,8 @@ import 'package:chat_ui/widgets/recent_chat.dart';
 import 'package:flutter/material.dart';
 import 'package:chat_ui/models/message_models.dart';
 
+import '../screens/chat_screen.dart';
+
 class FavoriteContact extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -44,26 +46,35 @@ class FavoriteContact extends StatelessWidget {
             // This is avatar and name of Favorite Contact
             SizedBox(
               height: 100,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: users.length,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 5),
-                    child: Column(
-                      children: [
-                        CircleAvatar(
-                          backgroundImage: AssetImage(users[index].imageURL),
-                          radius: 35,
-                        ),
-                        const SizedBox(
-                          height: 8,
-                        ),
-                        Text(users[index].name),
-                      ],
-                    ),
-                  );
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ChatScreen(),
+                      ));
                 },
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: users.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 5),
+                      child: Column(
+                        children: [
+                          CircleAvatar(
+                            backgroundImage: AssetImage(users[index].imageURL),
+                            radius: 35,
+                          ),
+                          const SizedBox(
+                            height: 8,
+                          ),
+                          Text(users[index].name),
+                        ],
+                      ),
+                    );
+                  },
+                ),
               ),
             ),
             //Recent chat

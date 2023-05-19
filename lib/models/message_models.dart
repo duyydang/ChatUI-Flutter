@@ -105,3 +105,49 @@ List<Message> messagesChat = <Message>[
   ),
 
 ];
+
+
+List<Message> messagesIndex = <Message>[
+  Message(
+    sender: users[1],
+    time: '5:30 PM',
+    message: 'Hey, how\'s it going? What did you do today?',
+    isLiked: true,
+    unRead: true,
+  ),
+  Message(
+    sender: users[0],
+    time: '4:30 PM',
+    message: 'Just walked my doge. She was super duper cute. The best pupper!!',
+    isLiked: false,
+    unRead: true,
+  ),
+  Message(
+    sender: users[1],
+    time: '3:45 PM',
+    message: 'How\'s the doggo?',
+    isLiked: false,
+    unRead: true,
+  ),
+  Message(
+    sender: users[1],
+    time: '3:15 PM',
+    message: 'All the food',
+    isLiked: true,
+    unRead: true,
+  ),
+  Message(
+    sender: users[0],
+    time: '2:30 PM',
+    message: 'Nice! What kind of food did you eat?',
+    isLiked: false,
+    unRead: true,
+  ),
+  Message(
+    sender: users[1],
+    time: '2:00 PM',
+    message: 'I ate so much food today.',
+    isLiked: false,
+    unRead: true,
+  ),
+];
