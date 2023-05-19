@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
 import '../widgets/category_home.dart';
-
+import '../widgets/favorite_contact.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -12,6 +11,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.red,
       appBar: AppBar(
         backgroundColor: Colors.red,
         centerTitle: true,
@@ -28,12 +28,18 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: [
           IconButton(
             onPressed: () {},
-            icon: Icon(Icons.search),
+            icon: const Icon(Icons.search),
           )
         ],
         elevation: 0.0,
       ),
-      body: Category(),
+      body: Column(
+        children: [
+          // Category: Message, Online,...
+          Category(),
+          FavoriteContact(),
+        ],
+      ),
     );
   }
 }
