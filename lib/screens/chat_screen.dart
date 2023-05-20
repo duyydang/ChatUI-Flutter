@@ -29,45 +29,47 @@ class _ChatScreenState extends State<ChatScreen> {
           ],
           elevation: 0.0,
         ),
-        body: Column(
-          children: [
-            Expanded(
-              child: Container(
-                decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(30.0),
-                    topRight: Radius.circular(30.0),
+        body: GestureDetector(
+          onTap: () => FocusScope.of(context).unfocus(),
+          child: Column(
+            children: [
+              Expanded(
+                child: Container(
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(30.0),
+                      topRight: Radius.circular(30.0),
+                    ),
                   ),
-                ),
-                child: ClipRRect(
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(30.0),
-                    topRight: Radius.circular(30.0),
-                  ),
-                  child: ListView.builder(
-                    reverse: true,
-                    itemCount: messagesIndex.length,
-                    itemBuilder: (context, index) {
-                      return Container(
-                        padding: const EdgeInsets.all(18),
-                        alignment: messagesIndex[index].sender.name == 'James'
-                            ? Alignment.centerRight
-                            : Alignment.centerLeft,
-                        margin: messagesIndex[index].sender.name == 'James'
-                            ? const EdgeInsets.only(
-                                top: 5,
-                                bottom: 5,
-                                left: 100,
-                              )
-                            : const EdgeInsets.only(
-                                top: 5,
-                                bottom: 5,
-                                right: 100,
-                              ),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: const Color(0xFFFFEFEE)),
+                  child: ClipRRect(
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(30.0),
+                      topRight: Radius.circular(30.0),
+                    ),
+                    child: ListView.builder(
+                      reverse: true,
+                      itemCount: messagesIndex.length,
+                      itemBuilder: (context, index) {
+                        return Container(
+                          padding: const EdgeInsets.all(18),
+                          alignment: messagesIndex[index].sender.name == 'James'
+                              ? Alignment.centerRight
+                              : Alignment.centerLeft,
+                          margin: messagesIndex[index].sender.name == 'James'
+                              ? const EdgeInsets.only(
+                                  top: 5,
+                                  bottom: 5,
+                                  left: 100,
+                                )
+                              : const EdgeInsets.only(
+                                  top: 5,
+                                  bottom: 5,
+                                  right: 100,
+                                ),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: const Color(0xFFFFEFEE)),
                           child: Column(
                             children: [
                               Container(
@@ -90,25 +92,49 @@ class _ChatScreenState extends State<ChatScreen> {
                               ),
                             ],
                           ),
-                      );
-                    },
+                        );
+                      },
+                    ),
                   ),
                 ),
               ),
-            ),
-            Container(
-              padding: const EdgeInsets.all(10),
-              color: Colors.white,
-              child: TextField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30)),
-                  labelText: 'Nhập tin nhắn',
-                ),
+              // Box chat
+              _buildBoxChat(),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Container _buildBoxChat() {
+    return Container(
+      color: Colors.white,
+      height: 50,
+      padding: const EdgeInsets.only(top: 10, bottom: 10),
+      child: Row(
+        children: [
+          IconButton(
+            color: Colors.red,
+            onPressed: () {},
+            icon: const Icon(Icons.attach_file),
+            padding: const EdgeInsets.only(bottom: 0),
+          ),
+          const Expanded(
+            child: TextField(
+              textCapitalization: TextCapitalization.sentences,
+              decoration: InputDecoration.collapsed(
+                hintText: 'Type any thing',
               ),
             ),
-          ],
-        ),
+          ),
+          IconButton(
+            color: Colors.red,
+            onPressed: () {},
+            icon: const Icon(Icons.send),
+            padding: const EdgeInsets.only(bottom: 0),
+          ),
+        ],
       ),
     );
   }
