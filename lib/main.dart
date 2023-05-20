@@ -8,7 +8,7 @@ void main() {
     theme: ThemeData(
       primaryColor: Colors.red,
     ),
-    home: HomeScreen(),
+    home: const HomeScreen(),
   ));
 }
 

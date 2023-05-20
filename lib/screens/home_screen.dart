@@ -3,6 +3,8 @@ import '../widgets/category_home.dart';
 import '../widgets/favorite_contact.dart';
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -37,6 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           // Category: Message, Online,...
           Category(),
+          // Favorite Contact and Recent Chat in here
           FavoriteContact(),
         ],
       ),

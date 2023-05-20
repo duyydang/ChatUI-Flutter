@@ -3,6 +3,8 @@ import 'package:chat_ui/screens/chat_screen.dart';
 import 'package:flutter/material.dart';
 
 class RecentChat extends StatefulWidget {
+  const RecentChat({super.key});
+
   @override
   State<RecentChat> createState() => _RecentChatState();
 }
@@ -41,7 +43,7 @@ class _RecentChatState extends State<RecentChat> {
                     bottomRight: Radius.circular(30),
                   ),
                   color: messagesChat[index].unRead
-                      ? Color(0xFFFFEFEE)
+                      ? const Color(0xFFFFEFEE)
                       : Colors.white,
                 ),
                 margin: const EdgeInsets.only(bottom: 5, right: 8, top: 5),
@@ -69,7 +71,7 @@ class _RecentChatState extends State<RecentChat> {
                             height: 10,
                           ),
                           SizedBox(
-                            width: 200,
+                            width: MediaQuery.of(context).size.width * 0.55,
                             child: Text(
                               messagesChat[index].message,
                               overflow: TextOverflow.ellipsis,

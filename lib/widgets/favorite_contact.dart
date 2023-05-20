@@ -5,6 +5,8 @@ import 'package:chat_ui/models/message_models.dart';
 import '../screens/chat_screen.dart';
 
 class FavoriteContact extends StatelessWidget {
+  const FavoriteContact({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Expanded(

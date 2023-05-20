@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../models/message_models.dart';
 
 class ChatScreen extends StatefulWidget {
+  const ChatScreen({super.key});
+
   @override
   State<ChatScreen> createState() => _ChatScreenState();
 }
